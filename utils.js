@@ -138,8 +138,20 @@ const replaceKeys = (arrayOfFiles, replaceValues) => arrayOfFiles.forEach(src =>
 
 const removeKeyLines = (arrayOfFiles, removeValues, keepLines) => arrayOfFiles.forEach(src => replaceKeysForFiles(src, { removeValues, keepLines }));
 
+const jsonParse = jsonString => {
+  try {
+    const parse = JSON.parse(jsonString);
+    return parse;
+  } catch (err) {
+    log.error('Could not get scripts version for saving settings.');
+    return undefined;
+  }
+}
+
 const saveSettings = settings => {
   const file = '.jkallunki-scripts';
+  const script = jsonParse(readSrcFile('package.json'));
+  settings.version = script.version;
   shell.ShellString(prettier.format(JSON.stringify(settings), { parser: "json" })).to(file);
 }
 
