@@ -1,6 +1,6 @@
 const clear = require("clear");
 const inquirer = require("inquirer");
-const { objValueMap, log, getTmp, rmFile, runPrettier, removeKeyLines, replaceKeys, cpFile, saveSettings } = require("../utils");
+const { objValueMap, log, createFile, createDir, getTmp, runPrettier, removeKeyLines, replaceKeys, cpFile, saveSettings } = require("../utils");
 
 const choose = () => {
   const choices = [

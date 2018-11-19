@@ -156,5 +156,5 @@ const saveSettings = settings => {
 }
 
 module.exports = {
-  lodashPick, objValueMap, log, getTmp, rmFile, runPrettier, replaceKeysForFiles, replaceKeys, removeKeyLines, cpFile, saveSettings
+  lodashPick, objValueMap, log, createFile, createDir, getTmp, rmFile, runPrettier, replaceKeysForFiles, replaceKeys, removeKeyLines, cpFile, saveSettings
 };
