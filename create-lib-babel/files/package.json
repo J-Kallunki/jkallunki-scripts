@@ -1,0 +1,59 @@
+{
+  "name": "__PACKAGENAME__",
+  "version": "1.0.0",
+  "description": "__DESCRIPTION__",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "test__MOCHA____NOISTANBUL__": "mocha --require @babel/polyfill --require @babel/register 'src/*.test.js'",
+    "test__MOCHA____ISTANBUL__": "cross-env NODE_ENV=test nyc mocha --require @babel/polyfill --require @babel/register 'src/*.test.js'",
+    "test:watch__MOCHA__": "yarn test --watch",
+    "test:withoutcover__MOCHA____ISTANBUL__": "mocha --require @babel/polyfill --require @babel/register 'src/*.test.js'",
+    "test:lcov__MOCHA____ISTANBUL__": "cross-env NODE_ENV=test nyc --reporter=lcov mocha 'src/*.test.js'",
+    "check-coverage__ISTANBUL__": "cross-env NODE_ENV=test nyc check-coverage --statements __COVERAGESTATEMENTS__ --branches __COVERAGEBRANCHES__ --functions __COVERAGEFUNCTIONS__ --lines __COVERAGELINES__",
+    "report-coverage__MOCHA____ISTANBUL____TRAVIS____CODECOV__": "cat ./coverage/lcov.info | codecov",
+    "validate__MOCHA____ISTANBUL__": "yarn test:lcov && yarn check-coverage",
+    "build": "babel src --out-dir dist --ignore 'src/*.test.js'",
+    "prebuild": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+__GITREPOSITORY__.git"
+  },
+  "author": "__AUTHORNAME__ <__AUTHOREMAIL__> (__AUTHORURL__)",
+  "license": "__LICENSE__",
+  "bugs": {
+    "url": "__GITREPOSITORY__/issues"
+  },
+  "homepage": "__GITREPOSITORY__#readme",
+  "nyc__ISTANBUL__": {
+    "require__ISTANBUL__": ["@babel/register"],
+    "sourceMap__ISTANBUL__": false,
+    "instrument__ISTANBUL__": false },
+  "husky__LINTSTAGED__": {
+    "hooks__LINTSTAGED__": {
+      "pre-push__LINTSTAGED____MOCHA____ISTANBUL__": "yarn validate",
+      "pre-commit__LINTSTAGED__": "lint-staged" } },
+  "lint-staged__LINTSTAGED__": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}__LINTSTAGED__": [ "prettier --single-quote --write", "git add" ] },
+  "devDependencies": {
+    "@babel/cli": "7.1.5",
+    "@babel/core": "7.1.6",
+    "@babel/polyfill": "7.0.0",
+    "@babel/preset-env": "7.1.6",
+    "@babel/register": "7.0.0",
+    "babel-plugin-istanbul__ISTANBUL__": "5.1.0",
+    "chai__MOCHA__": "4.2.0",
+    "codecov.io__CODECOV__": "0.1.6",
+    "cross-env": "5.2.0",
+    "husky__LINTSTAGED__": "1.1.4",
+    "lint-staged__LINTSTAGED__": "8.0.5",
+    "mocha__MOCHA__": "5.2.0",
+    "nyc__ISTANBUL__": "13.1.0",
+    "prettier__LINTSTAGED__": "1.15.2",
+    "rimraf": "2.6.2"
+  }
+}

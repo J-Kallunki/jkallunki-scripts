@@ -1,0 +1,6 @@
+{
+  "presets": [["@babel/preset-env", { "modules": false }]],
+  "env__ISTANBUL__": {
+    "test__ISTANBUL__": {
+      "plugins__ISTANBUL__": ["istanbul"] } }
+}

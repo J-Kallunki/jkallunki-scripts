@@ -1,0 +1,33 @@
+{
+  "name": "jkallunki-scripts",
+  "version": "1.0.0",
+  "description": "CLI for common scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-Kallunki/jkallunki-scripts.git"
+  },
+  "author": "Joonas Kallunki <jkallunki@gmail.com> (https://jkallunki.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/J-Kallunki/jkallunki-scripts/issues"
+  },
+  "homepage": "https://github.com/J-Kallunki/jkallunki-scripts#readme",
+  "dependencies": {
+    "chalk": "2.4.1",
+    "clear": "0.1.0",
+    "figlet": "1.2.1",
+    "inquirer": "6.2.0",
+    "lodash.pick": "4.4.0",
+    "prettier": "1.15.2",
+    "shelljs": "0.8.3"
+  },
+  "bin": {
+    "jkallunki-scripts": "./index.js",
+    "create-lib-babel": "./create-lib-babel/index.js"
+  }
+}
