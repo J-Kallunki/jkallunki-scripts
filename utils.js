@@ -99,7 +99,13 @@ const getTmp = (scriptDir, dir) => {
 const runPrettier = ({ dir = false, file = false, relativeFile = false } = {}) => {
   const localDir = path.resolve(__dirname);
   if (!!dir) {
-    shell.exec(`${localDir}/node_modules/.bin/prettier --single-quote --write "${dir}/*.{js,ts,css,less,scss,vue,json,gql,md,babelrc,travis.yml}"`);
+    const commands = [
+      `"${dir}/*.{js,ts,css,less,scss,vue,json,gql,md}"`,
+      `--loglevel silent --parser json "${dir}/babelrc"`,
+      `--loglevel silent --parser json "${dir}/packagejson"`,
+      `--loglevel silent --parser yaml "${dir}/travisyml"`
+    ];
+    commands.forEach(c => shell.exec(`${localDir}/node_modules/.bin/prettier --single-quote --write ${c}`));
   }
   if (!!file) {
     const to = relativeFile ? `${process.cwd()}/${file}` : file;

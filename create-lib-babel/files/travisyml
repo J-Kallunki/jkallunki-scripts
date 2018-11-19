@@ -18,3 +18,4 @@ script:
   - yarn build
 after_success:
   - yarn report-coverage__CODECOV__
+  

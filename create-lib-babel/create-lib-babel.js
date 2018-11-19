@@ -94,10 +94,16 @@ const askQuestions = ifCoverage => {
 const createLibBabel = async () => {
   const tempFiles = getTmp('create-lib-babel', 'files');
   const files = {
-    packageJson: 'package.json',
-    babelRc:'.babelrc',
-    gitignore:'.gitignore',
+    packageJson: 'packagejson',
+    babelRc: 'babelrc',
+    gitignore:'gitignore',
     readme: 'README.md',
+    travisYml: 'travisyml'
+  }
+  const realFilenames = {
+    packageJson: 'package.json',
+    babelRc: '.babelrc',
+    gitignore: '.gitignore',
     travisYml: '.travis.yml'
   }
   const filesSrc = objValueMap(value => `${tempFiles}/${value}`)(files);
@@ -129,10 +135,13 @@ const createLibBabel = async () => {
 
   runPrettier({ dir: tempFiles });
   clear();
+  createDir('src');
+  createFile('src/index', 'js');
   Object.keys(files).forEach(key => {
     const checkTravis = (key !== 'travisYml' || isTravis);
     if (checkTravis) {
-      cpFile(filesSrc[key], files[key]);
+      const dest = realFilenames.hasOwnProperty(key) ? realFilenames[key] : files[key];
+      cpFile(filesSrc[key], dest);
     }
   });
 
