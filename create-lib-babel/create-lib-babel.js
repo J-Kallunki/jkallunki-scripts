@@ -27,25 +27,25 @@ const askQuestions = ifCoverage => {
     {
       name: "COVERAGESTATEMENTS",
       type: "input",
-      message: "Coverage test percent statements:",
+      message: "Coverage test percent - statements:",
       default: "90"
     },
     {
       name: "COVERAGEBRANCHES",
       type: "input",
-      message: "Coverage test percent branches:",
+      message: "Coverage test percent - branches:",
       default: "90"
     },
     {
       name: "COVERAGEFUNCTIONS",
       type: "input",
-      message: "Coverage test percent functions:",
+      message: "Coverage test percent - functions:",
       default: "90"
     },
     {
       name: "COVERAGELINES",
       type: "input",
-      message: "Coverage test percent lines:",
+      message: "Coverage test percent - lines:",
       default: "90"
     }
   ];
