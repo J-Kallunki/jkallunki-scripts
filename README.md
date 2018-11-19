@@ -25,9 +25,9 @@ yarn jkallunki-scripts
 yarn j-cl-babel
 ```
 
-![Opionated Javascript-library setup with Babel ES6](readme-files/create-lib-babel.png)
+![Opinionated Javascript-library setup with Babel ES6](readme-files/create-lib-babel.png)
 
 ## Acknowledgements
 
-Opionated Javascript-library setup with Babel ES6 - based on materials at lessons from [Kent C. Dodds](https://github.com/kentcdodds)
+Opinionated Javascript-library setup with Babel ES6 - based on materials at lessons from [Kent C. Dodds](https://github.com/kentcdodds)
  

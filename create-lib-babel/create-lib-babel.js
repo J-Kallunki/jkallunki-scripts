@@ -110,7 +110,7 @@ const createLibBabel = async () => {
 
   clear();
   log.figlet();
-  log.info('Opionated Javascript-library setup with Babel ES6');
+  log.info('Opinionated Javascript-library setup with Babel ES6');
   log.br();
 
   // ask questions
