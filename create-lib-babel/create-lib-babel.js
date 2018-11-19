@@ -115,10 +115,11 @@ const createLibBabel = async () => {
 
   // ask questions
   const { VERSION } = await choose();
+  const isFeat = feat => VERSION.includes(feat);
 
-  const isIstanbul = VERSION.includes('ISTANBUL');
+  const isIstanbul = isFeat('ISTANBUL');
   if (!isIstanbul) VERSION.push('NOISTANBUL');
-  const isTravis = VERSION.includes('TRAVIS');
+  const isTravis = isFeat('TRAVIS');
   const versionsPackageJson = {mocha: 'MOCHA', istanbul: 'ISTANBUL', noistanbul: 'NOISTANBUL', lintstaged: 'LINTSTAGED', travis: 'TRAVIS', codecov: 'CODECOV'};
   const versionsBabelRc = {istanbul: 'ISTANBUL'};
   const versionsTravisYml = {mocha: 'MOCHA', istanbul: 'ISTANBUL', codecov: 'CODECOV'};
@@ -152,7 +153,21 @@ const createLibBabel = async () => {
     }
   });
 
+  clear();
   log.thankYou();
+  log.info(`Run command: ${log.color('green')('yarn')}`);
+  log.info(`Create your library to ${log.color('yellow')('src/')}`);
+  if (isFeat('TRAVIS')) {
+    log.br();
+    log.info(`${log.color('cyan')('https://travis-ci.com/')} "Sign in with Github"`);
+    log.info(`${log.color('cyan')('https://travis-ci.com/profile')} "Add repo"`);
+  }
+  if (isFeat('CODECOV')) {
+    log.br();
+    log.info(`${log.color('cyan')('https://codecov.io/')} "${log.color('green')('Sign Up')}"`);
+    log.info(`"${log.color('green')('Sign up with GitHub')}"`);
+    log.info(`"${log.color('green')('Add new repository')}"`);
+  }
 };
 
 module.exports = {
