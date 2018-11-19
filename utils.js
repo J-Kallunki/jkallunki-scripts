@@ -64,6 +64,12 @@ const createFile = (filename, extension) => {
   return filePath;
 };
 
+const createDir = (dirName) => {
+  const dirPath = `${process.cwd()}/${dirName}`
+  shell.mkdir('-p', dirPath);
+  return dirPath;
+};
+
 const cpFile = (src, localDest) => {
   if (!localDest) {
     log.error('Copying files did not work :(');
