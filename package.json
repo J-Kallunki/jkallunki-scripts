@@ -28,6 +28,6 @@
   },
   "bin": {
     "jkallunki-scripts": "./index.js",
-    "create-lib-babel": "./create-lib-babel/index.js"
+    "j-cl-babel": "./create-lib-babel/index.js"
   }
 }

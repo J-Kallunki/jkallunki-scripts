@@ -8,7 +8,7 @@ yarn add -D jkallunki-scripts
 
 And run:
 ```bash
-jkallunki-scripts
+yarn j-cl-babel
 ```
 or directly run a selected script:
 
