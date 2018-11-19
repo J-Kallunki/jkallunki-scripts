@@ -1,20 +1,33 @@
 # jkallunki-scripts
 
+Tooling for creating configurations etc.
+
 ## Usage
-Install
+
 ```bash
-yarn add -D jkallunki-scripts
+npx jkallunki-scripts
 ```
 
-And run:
+Or install and run (one time):
+```bash
+yarn add -D jkallunki-scripts
+yarn jkallunki-scripts
+```
+
+Or install and run (global):
+```bash
+yarn global add jkallunki-scripts
+yarn jkallunki-scripts
+```
+### Directly run a selected script:
+
 ```bash
 yarn j-cl-babel
 ```
-or directly run a selected script:
 
-* Create Javascript-library with Babel ES6: `create-lib-babel`
+![Opionated Javascript-library setup with Babel ES6](readme-files/create-lib-babel.png)
 
 ## Acknowledgements
 
-Create Javascript-library with Babel ES6 - based on setup from tutorials by [Kent C. Dodds](https://github.com/kentcdodds)
+Opionated Javascript-library setup with Babel ES6 - based on materials at lessons from [Kent C. Dodds](https://github.com/kentcdodds)
  
