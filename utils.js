@@ -85,7 +85,7 @@ const rmFile = (file, { relativeFile = false } = {}) => {
 
 const getTmp = (scriptDir, dir) => {
   const sysTmp = shell.tempdir();
-  const tmp = (!sysTmp || sysTmp.length < 2) ? 'temp-jkallunki' : `${sysTmp}/${scriptDir}/${dir}`;
+  const tmp = (!sysTmp || sysTmp.length < 2) ? '.temp-jkallunki' : `${sysTmp}/${scriptDir}/${dir}`;
   const localDir = path.resolve(__dirname, `${scriptDir}/${dir}`);
   shell.rm('-rf', `${tmp}/*`);
   shell.mkdir('-p', tmp);
