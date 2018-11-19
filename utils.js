@@ -35,6 +35,7 @@ const log = {
     );
   },
   br: () => console.log(''),
+  color: color => text => chalk[color](text),
   info: text => {
     console.log(
       chalk.white.bgBlack.bold(text)
