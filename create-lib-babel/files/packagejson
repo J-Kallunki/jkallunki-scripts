@@ -16,6 +16,8 @@
     "check-coverage__ISTANBUL__": "cross-env NODE_ENV=test nyc check-coverage --statements __COVERAGESTATEMENTS__ --branches __COVERAGEBRANCHES__ --functions __COVERAGEFUNCTIONS__ --lines __COVERAGELINES__",
     "report-coverage__MOCHA____ISTANBUL____TRAVIS____CODECOV__": "cat ./coverage/lcov.info | codecov",
     "validate__MOCHA____ISTANBUL__": "yarn test:lcov && yarn check-coverage",
+    "prettier__LINTSTAGED__": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "prettier:check__LINTSTAGED__": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "build": "babel src --out-dir dist --ignore 'src/*.test.js'",
     "prebuild": "rimraf dist"
   },
@@ -35,10 +37,11 @@
     "instrument__ISTANBUL__": false },
   "husky__LINTSTAGED__": {
     "hooks__LINTSTAGED__": {
-      "pre-push__LINTSTAGED____MOCHA____ISTANBUL__": "yarn validate",
+      "pre-push__LINTSTAGED____NOISTANBUL__": "yarn prettier:check",
+      "pre-push__LINTSTAGED____MOCHA____ISTANBUL__": "yarn validate && yarn prettier:check",
       "pre-commit__LINTSTAGED__": "lint-staged" } },
   "lint-staged__LINTSTAGED__": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}__LINTSTAGED__": [ "prettier --single-quote --write", "git add" ] },
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}__LINTSTAGED__": [ "prettier-check" ] },
   "devDependencies": {
     "@babel/cli": "7.1.5",
     "@babel/core": "7.1.6",
@@ -54,6 +57,7 @@
     "mocha__MOCHA__": "5.2.0",
     "nyc__ISTANBUL__": "13.1.0",
     "prettier__LINTSTAGED__": "1.15.2",
+    "prettier-check__LINTSTAGED__": "2.0.0",
     "rimraf": "2.6.2"
   }
 }

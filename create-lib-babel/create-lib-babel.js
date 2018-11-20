@@ -98,13 +98,15 @@ const createLibBabel = async () => {
     babelRc: 'babelrc',
     gitignore:'gitignore',
     readme: 'README.md',
-    travisYml: 'travisyml'
+    travisYml: 'travisyml',
+    prettierRc: 'prettierrc'
   }
   const realFilenames = {
     packageJson: 'package.json',
     babelRc: '.babelrc',
     gitignore: '.gitignore',
-    travisYml: '.travis.yml'
+    travisYml: '.travis.yml',
+    prettierRc: '.prettierrc'
   }
   const filesSrc = objValueMap(value => `${tempFiles}/${value}`)(files);
 
@@ -120,6 +122,7 @@ const createLibBabel = async () => {
   const isIstanbul = isFeat('ISTANBUL');
   if (!isIstanbul) VERSION = [...VERSION, 'NOISTANBUL'];
   const isTravis = isFeat('TRAVIS');
+  const isLintstaged = isFeat('LINTSTAGED');
   const versionsPackageJson = {mocha: 'MOCHA', istanbul: 'ISTANBUL', noistanbul: 'NOISTANBUL', lintstaged: 'LINTSTAGED', travis: 'TRAVIS', codecov: 'CODECOV'};
   const versionsBabelRc = {istanbul: 'ISTANBUL'};
   const versionsTravisYml = {mocha: 'MOCHA', istanbul: 'ISTANBUL', codecov: 'CODECOV'};
@@ -140,7 +143,8 @@ const createLibBabel = async () => {
   createFile('src/index', 'js');
   Object.keys(files).forEach(key => {
     const checkTravis = (key !== 'travisYml' || isTravis);
-    if (checkTravis) {
+    const checkPrettier = (key !== 'prettierRc' || isLintstaged);
+    if (checkTravis && checkPrettier) {
       const dest = realFilenames.hasOwnProperty(key) ? realFilenames[key] : files[key];
       cpFile(filesSrc[key], dest);
     }
