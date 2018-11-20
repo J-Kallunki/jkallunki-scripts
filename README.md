@@ -1,3 +1,5 @@
+![jkallunki-scripts](readme-files/jkallunki-scripts.png)
+
 # jkallunki-scripts
 
 Tooling for creating configurations etc.
