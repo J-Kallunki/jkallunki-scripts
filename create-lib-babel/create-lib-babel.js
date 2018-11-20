@@ -160,8 +160,19 @@ const createLibBabel = async () => {
   clear();
   log.thankYou();
   log.info(`Run command: ${log.color('green')('yarn')}`);
+  log.info(`Check created package.json: ${log.color('yellow')('scripts')}!`);
   log.info(`Create your library to ${log.color('yellow')('src/')}`);
-  if (isFeat('TRAVIS')) {
+
+  if (isLintstaged) {
+  log.br();
+  log.info(`I suggest adding VSCode Prettier-plugin:
+${log.color('green')('CMD+Shift+P')} ${log.color('yellow')('ext install esbenp.prettier-vscode')}
+${log.color('green')('CMD+Shift+P')} ${log.color('yellow')('openWorkspaceSettings')}
+${log.color('yellow')('"editor.formatOnSave": true,')}
+${log.color('yellow')('"prettier.singleQuote": true')}`);
+  }
+
+  if (isTravis) {
     log.br();
     log.info(`${log.color('cyan')('https://travis-ci.com/')} "Sign in with Github"`);
     log.info(`${log.color('cyan')('https://travis-ci.com/profile')} "Add repo"`);
