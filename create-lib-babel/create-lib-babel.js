@@ -125,7 +125,7 @@ const createLibBabel = async () => {
   const isLintstaged = isFeat('LINTSTAGED');
   const versionsPackageJson = {mocha: 'MOCHA', istanbul: 'ISTANBUL', noistanbul: 'NOISTANBUL', lintstaged: 'LINTSTAGED', travis: 'TRAVIS', codecov: 'CODECOV'};
   const versionsBabelRc = {istanbul: 'ISTANBUL'};
-  const versionsTravisYml = {mocha: 'MOCHA', istanbul: 'ISTANBUL', codecov: 'CODECOV'};
+  const versionsTravisYml = {mocha: 'MOCHA', istanbul: 'ISTANBUL', codecov: 'CODECOV', lintstaged: 'LINTSTAGED'};
   removeKeyLines([filesSrc.packageJson], versionsPackageJson, VERSION);
   removeKeyLines([filesSrc.babelRc], versionsBabelRc, VERSION);
   if(isTravis) {
