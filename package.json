@@ -1,6 +1,6 @@
 {
   "name": "jkallunki-scripts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI for common scripts",
   "main": "index.js",
   "scripts": {
