@@ -114,7 +114,7 @@ const createLibBabel = async () => {
   log.br();
 
   // ask questions
-  const { VERSION } = await choose();
+  let { VERSION } = await choose();
   const isFeat = feat => VERSION.includes(feat);
 
   const isIstanbul = isFeat('ISTANBUL');
