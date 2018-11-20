@@ -174,8 +174,8 @@ ${log.color('yellow')('"prettier.singleQuote": true')}`);
 
   if (isTravis) {
     log.br();
-    log.info(`${log.color('cyan')('https://travis-ci.com/')} "Sign in with Github"`);
-    log.info(`${log.color('cyan')('https://travis-ci.com/profile')} "Add repo"`);
+    log.info(`${log.color('cyan')('https://travis-ci.com/')} "${log.color('green')('Sign in with Github')}"`);
+    log.info(`${log.color('cyan')('https://travis-ci.com/profile')} "${log.color('green')('Add repo')}"`);
   }
   if (isFeat('CODECOV')) {
     log.br();
