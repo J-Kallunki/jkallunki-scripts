@@ -55,6 +55,12 @@ const log = {
     console.log(
       chalk.red.inverse(text)
     );
+  },
+  credits: () => {
+    console.log('');
+    console.log('');
+    console.log(chalk.white.bgBlack.bold('License: MIT'));
+    console.log(chalk.black.bgCyan('https://github.com/J-Kallunki/jkallunki-scripts'));
   }
 };
 

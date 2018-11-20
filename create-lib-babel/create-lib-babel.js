@@ -183,6 +183,7 @@ ${log.color('yellow')('"prettier.singleQuote": true')}`);
     log.info(`"${log.color('green')('Sign up with GitHub')}"`);
     log.info(`"${log.color('green')('Add new repository')}"`);
   }
+  log.credits();
 };
 
 module.exports = {
