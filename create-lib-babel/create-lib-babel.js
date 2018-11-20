@@ -118,7 +118,7 @@ const createLibBabel = async () => {
   const isFeat = feat => VERSION.includes(feat);
 
   const isIstanbul = isFeat('ISTANBUL');
-  if (!isIstanbul) VERSION.push('NOISTANBUL');
+  if (!isIstanbul) VERSION = [...VERSION, 'NOISTANBUL'];
   const isTravis = isFeat('TRAVIS');
   const versionsPackageJson = {mocha: 'MOCHA', istanbul: 'ISTANBUL', noistanbul: 'NOISTANBUL', lintstaged: 'LINTSTAGED', travis: 'TRAVIS', codecov: 'CODECOV'};
   const versionsBabelRc = {istanbul: 'ISTANBUL'};
