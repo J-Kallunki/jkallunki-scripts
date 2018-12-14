@@ -22,9 +22,13 @@ yarn jkallunki-scripts
 ### Directly run a selected script:
 
 ```bash
+yarn j-cl-tsreact
+```
+![Opinionated React setup with Webpack 4 and Typescript](readme-files/create-lib-tsreact.png)
+
+```bash
 yarn j-cl-babel
 ```
-
 ![Opinionated Javascript-library setup with Babel ES6](readme-files/create-lib-babel.png)
 
 ## Acknowledgements

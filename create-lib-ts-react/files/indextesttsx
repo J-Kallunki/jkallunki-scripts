@@ -1,0 +1,11 @@
+import React from 'react';
+import { render } from 'react-testing-library';
+import { App } from './index';
+test('calling render with the same component on the same container does not remount', () => {
+  const appRenderer = render(<App />);
+  const { getByTestId, rerender } = appRenderer;
+  expect(getByTestId('app').textContent).toBe(`Let's begin`);
+  // re-render the same component
+  rerender(<App />);
+  expect(getByTestId('app').textContent).toBe(`Let's begin`);
+});

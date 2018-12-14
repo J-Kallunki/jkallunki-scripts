@@ -1,0 +1,38 @@
+const path = require('path');
+const TSLintPlugin__TSLINT__ = require('tslint-webpack-plugin');
+
+module.exports = env => ({
+  entry: path.join(__dirname, '/src/index.tsx'),
+  mode: env.production ? 'production' : 'development',
+  devtool: env.production ? 'inline-source-map' : 'eval',
+  node: {
+    fs: 'empty',
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
+  output: {
+    path: path.join(__dirname, '/dist/umd'),
+    filename: 'index.js',
+    library: 'suomifi-ui-components',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+  },
+  module: {
+    rules: [
+      // Run the typescript compilier on .ts files before webpack
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader?configFileName=./tsconfig.json',
+        exclude: [/node_modules/],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  plugins__TSLINT__: [
+    new TSLintPlugin__TSLINT__({
+      files__TSLINT__: ['./src/**/*.tsx'],}),]
+});
