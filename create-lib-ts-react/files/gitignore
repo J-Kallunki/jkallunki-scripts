@@ -1,0 +1,14 @@
+dist
+build
+styleguide
+tmp
+.cache
+.awcache
+coverage
+
+# dependencies
+node_modules
+
+# editors
+.idea
+.vscode

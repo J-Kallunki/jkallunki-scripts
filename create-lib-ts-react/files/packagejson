@@ -1,0 +1,96 @@
+{
+  "name": "__PACKAGENAME__",
+  "version": "1.0.0",
+  "description": "__DESCRIPTION__",
+  "main": "dist/umd/index.js",
+  "module__ESM__": "dist/esm/index.js",
+  "es2015__ESM__": "dist/es2015/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "start__STYLEGUIDIST__": "yarn styleguide",
+    "start__NOSTYLEGUIDIST__": "webpack --env.development",
+    "test__JEST__": "jest",
+    "test:lint__TSLINT__": "tslint --project tsconfig.json 'src/**/*.tsx'",
+    "prettier__LINTSTAGED__": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "prettier:check__LINTSTAGED__": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "validate__JEST____TSLINT____LINTSTAGED__": "yarn test && yarn test:lint && yarn prettier:check",
+    "validate__NOJEST____TSLINT____LINTSTAGED__": "yarn test:lint && yarn prettier:check",
+    "validate__JEST____NOTSLINT____LINTSTAGED__": "yarn test && yarn prettier:check",
+    "validate__JEST____TSLINT____NOLINTSTAGED__": "yarn test && yarn test:lint",
+    "validate__NOJEST____NOTSLINT____LINTSTAGED__": "yarn prettier:check",
+    "validate__JEST____NOTSLINT____NOLINTSTAGED__": "yarn test",
+    "validate__NOJEST____TSLINT____NOLINTSTAGED__": "yarn test:lint",
+    "prebuild": "rimraf dist",
+    "build__ESM__": "yarn build:umd && yarn build:es2015 && yarn build:esm",
+    "build__NOESM__": "webpack --env.production",
+    "build:umd__ESM__": "webpack --env.production",
+    "build:es2015__ESM__": "tsc --p tsconfig.es2015.json",
+    "build:esm__ESM__": "tsc --p tsconfig.esm.json",
+    "bundle-analyzer": "size-limit --why",
+    "styleguide__STYLEGUIDIST__": "styleguidist server",
+    "styleguide:build__STYLEGUIDIST__": "styleguidist build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+__GITREPOSITORY__.git"
+  },
+  "author": "__AUTHORNAME__ <__AUTHOREMAIL__> (__AUTHORURL__)",
+  "license": "__LICENSE__",
+  "bugs": {
+    "url": "__GITREPOSITORY__/issues"
+  },
+  "homepage": "__GITREPOSITORY__#readme",
+  "husky__LINTSTAGED__": {
+    "hooks__LINTSTAGED__": {
+      "pre-push__LINTSTAGED__": "yarn validate",
+      "pre-commit__LINTSTAGED__": "lint-staged" } },
+  "lint-staged__LINTSTAGED__": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}__LINTSTAGED__": [ "prettier-check" ] },
+  "size-limit": [
+    {
+      "path__ESM__": "dist/es2015/index.js"
+      "path__NOESM__": "dist/umd/index.js"
+    }
+  ],
+  "devDependencies": {
+    "@emotion/core__EMOTION__": "10.0.0",
+    "@emotion/styled__EMOTION__": "10.0.0",
+    "@types/jest__JEST__": "23.3.9",
+    "@types/react": "16.7.7",
+    "@types/react-dom": "16.0.9",
+    "awesome-typescript-loader": "5.2.1",
+    "css-loader": "2.0.0",
+    "husky__LINTSTAGED__": "1.1.4",
+    "jest__JEST__": "23.6.0",
+    "jest-dom__JEST__": "2.1.1",
+    "lint-staged__LINTSTAGED__": "8.0.5",
+    "prettier__LINTSTAGED__": "1.15.2",
+    "prettier-check__LINTSTAGED__": "2.0.0",
+    "react-docgen__STYLEGUIDIST__": "2.21.0",
+    "react-docgen-typescript__STYLEGUIDIST__": "1.12.2",
+    "react-styleguidist__STYLEGUIDIST__": "8.0.6",
+    "react-testing-library__JEST__": "5.3.0",
+    "rimraf": "2.6.2",
+    "size-limit": "0.21.0",
+    "style-loader": "0.23.1",
+    "ts-jest__JEST__": "23.10.4",
+    "tslint__TSLINT__": "5.11.0",
+    "tslint-config-airbnb__TSLINT__": "5.11.1",
+    "tslint-config-prettier__TSLINT__": "1.17.0",
+    "tslint-eslint-rules__TSLINT__": "5.4.0",
+    "tslint-react__TSLINT__": "3.6.0",
+    "tslint-webpack-plugin__TSLINT__": "1.2.2",
+    "typescript": "3.1.6",
+    "typescript-eslint-parser": "21.0.2",
+    "webpack": "4.25.1",
+    "webpack-cli": "3.1.2"
+  },
+  "dependencies": {
+    "react": "16.6.3",
+    "react-dom": "16.6.3"
+  }
+}

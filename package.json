@@ -28,6 +28,7 @@
   },
   "bin": {
     "jkallunki-scripts": "./index.js",
-    "j-cl-babel": "./create-lib-babel/index.js"
+    "j-cl-babel": "./create-lib-babel/index.js",
+    "j-cl-tsreact": "./create-lib-ts-react/index.js"
   }
 }

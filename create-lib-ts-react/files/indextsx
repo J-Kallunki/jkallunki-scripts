@@ -1,0 +1,6 @@
+import React from 'react';
+export const App = () => (
+  <div className="App" data-testid="app">
+    Let's begin
+  </div>
+);
