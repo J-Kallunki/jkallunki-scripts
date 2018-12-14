@@ -102,8 +102,16 @@ const getTmp = (scriptDir, dir) => {
   return tmp;
 }
 
+const removeEmptyLines = file => {
+  const blankLines = new RegExp(/(^[ \t]*\n)/, "gm");
+  const removeBlankLines = (input) => input.replace(blankLines, "");
+  const source = removeBlankLines(shell.cat(file));
+  shell.echo(source).to(file);
+}
+
 const runPrettier = ({ dir = false, file = false, relativeFile = false } = {}) => {
   const localDir = path.resolve(__dirname);
+  const cmdPrettier = to => shell.exec(`${localDir}/node_modules/.bin/prettier --single-quote --write ${to}`);
   if (!!dir) {
     const commands = [
       `"${dir}/*.{js,ts,css,less,scss,vue,json,gql,md}"`,
@@ -111,11 +119,15 @@ const runPrettier = ({ dir = false, file = false, relativeFile = false } = {}) =
       `--loglevel silent --parser json "${dir}/packagejson"`,
       `--loglevel silent --parser yaml "${dir}/travisyml"`
     ];
-    commands.forEach(c => shell.exec(`${localDir}/node_modules/.bin/prettier --single-quote --write ${c}`));
+    commands.forEach(c => cmdPrettier(c));
+    shell.ls(dir).forEach(function (file) {
+      log.br();
+      removeEmptyLines(`${dir}/${file}`);
+    })
   }
   if (!!file) {
-    const to = relativeFile ? `${process.cwd()}/${file}` : file;
-    shell.exec(`${localDir}/node_modules/.bin/prettier --single-quote --write "${to}"`);
+    const toFile = relativeFile ? `${process.cwd()}/${file}` : file;
+    cmdPrettier(`"${toFile}"`);
   }
 }
 
